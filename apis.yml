@@ -1,0 +1,33 @@
+aid: nected
+name: Nected
+description: >-
+  Nected is a low-code workflow automation and decision engine platform for building business rules and automated processes.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Workflow Automation
+  - Low-Code
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/nected/refs/heads/main/apis.yml
+created: 2026-03-27
+modified: 2026-03-27
+specificationVersion: 0.19
+apis:
+  - aid: nected:nected
+    name: Nected
+    description: >-
+      Nected is a low-code workflow automation and decision engine platform for building business rules and automated processes.
+    humanURL: https://www.nected.ai
+    tags:
+      - Workflow Automation
+    properties:
+      - type: Documentation
+        url: https://docs.nected.ai
+common:
+  - type: Website
+    url: https://www.nected.ai
+  - type: Documentation
+    url: https://docs.nected.ai
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
