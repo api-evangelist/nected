@@ -1,0 +1,723 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Nected API
+  description: Nected is a low-code workflow automation and decision engine platform. The API enables triggering of rules
+    and workflows, listing and inspecting entities, managing global variables, retrieving audit logs, and checking usage.
+  tags:
+  - Nected
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: nected
+    baseUri: https://api.nected.ai
+    description: Nected API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: nected-api-key
+      value: '{{NECTED_TOKEN}}'
+    resources:
+    - name: nected-rule-ruleid
+      path: /nected/rule/{ruleId}
+      operations:
+      - name: triggerrule
+        method: POST
+        description: Trigger a rule
+        inputParameters:
+        - name: ruleId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: nected-workflow-workflowid
+      path: /nected/workflow/{workflowId}
+      operations:
+      - name: triggerworkflow
+        method: POST
+        description: Trigger a workflow
+        inputParameters:
+        - name: workflowId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dev-usage
+      path: /dev/usage
+      operations:
+      - name: checkusage
+        method: GET
+        description: Check usage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dev-audit-audit-search
+      path: /dev/audit/audit/search
+      operations:
+      - name: searchauditlogs
+        method: GET
+        description: Search audit logs
+        inputParameters:
+        - name: pageNo
+          in: query
+          type: integer
+        - name: pageSize
+          in: query
+          type: integer
+        - name: search
+          in: query
+          type: string
+        - name: type
+          in: query
+          type: string
+        - name: event
+          in: query
+          type: string
+        - name: status
+          in: query
+          type: string
+        - name: startDate
+          in: query
+          type: string
+        - name: endDate
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dev-audit-audit-logid
+      path: /dev/audit/audit/{logId}
+      operations:
+      - name: getauditlog
+        method: GET
+        description: Get audit log detail
+        inputParameters:
+        - name: logId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dev-entitytype
+      path: /dev/{entityType}
+      operations:
+      - name: listentities
+        method: GET
+        description: List rules or workflows
+        inputParameters:
+        - name: entityType
+          in: path
+          type: string
+          required: true
+        - name: page
+          in: query
+          type: integer
+        - name: perPage
+          in: query
+          type: integer
+        - name: sortBy
+          in: query
+          type: string
+        - name: sortDir
+          in: query
+          type: string
+        - name: status
+          in: query
+          type: string
+        - name: name
+          in: query
+          type: string
+        - name: type
+          in: query
+          type: string
+        - name: q
+          in: query
+          type: string
+        - name: tags
+          in: query
+          type: string
+        - name: createdAtFrom
+          in: query
+          type: string
+        - name: createdAtTo
+          in: query
+          type: string
+        - name: updatedAtFrom
+          in: query
+          type: string
+        - name: updatedAtTo
+          in: query
+          type: string
+        - name: createdBy
+          in: query
+          type: string
+        - name: updatedBy
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dev-entitytype-entityid
+      path: /dev/{entityType}/{entityId}
+      operations:
+      - name: getentity
+        method: GET
+        description: Get rule or workflow detail
+        inputParameters:
+        - name: entityType
+          in: path
+          type: string
+          required: true
+        - name: entityId
+          in: path
+          type: string
+          required: true
+        - name: view
+          in: query
+          type: string
+        - name: include
+          in: query
+          type: string
+        - name: version
+          in: query
+          type: string
+        - name: expand
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dev-variable
+      path: /dev/variable
+      operations:
+      - name: listglobalvariables
+        method: GET
+        description: List global variables
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createglobalvariable
+        method: POST
+        description: Create a global variable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dev-variable-name
+      path: /dev/variable/{name}
+      operations:
+      - name: getglobalvariable
+        method: GET
+        description: Get a global variable
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateglobalvariable
+        method: PATCH
+        description: Update a global variable
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+        - name: checksum
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteglobalvariable
+        method: DELETE
+        description: Delete a global variable
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+        - name: checksum
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: nected-rest
+    description: REST adapter for Nected API.
+    resources:
+    - path: /nected/rule/{ruleId}
+      name: triggerrule
+      operations:
+      - method: POST
+        name: triggerrule
+        description: Trigger a rule
+        call: nected.triggerrule
+        with:
+          ruleId: rest.ruleId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /nected/workflow/{workflowId}
+      name: triggerworkflow
+      operations:
+      - method: POST
+        name: triggerworkflow
+        description: Trigger a workflow
+        call: nected.triggerworkflow
+        with:
+          workflowId: rest.workflowId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dev/usage
+      name: checkusage
+      operations:
+      - method: GET
+        name: checkusage
+        description: Check usage
+        call: nected.checkusage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dev/audit/audit/search
+      name: searchauditlogs
+      operations:
+      - method: GET
+        name: searchauditlogs
+        description: Search audit logs
+        call: nected.searchauditlogs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dev/audit/audit/{logId}
+      name: getauditlog
+      operations:
+      - method: GET
+        name: getauditlog
+        description: Get audit log detail
+        call: nected.getauditlog
+        with:
+          logId: rest.logId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dev/{entityType}
+      name: listentities
+      operations:
+      - method: GET
+        name: listentities
+        description: List rules or workflows
+        call: nected.listentities
+        with:
+          entityType: rest.entityType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dev/{entityType}/{entityId}
+      name: getentity
+      operations:
+      - method: GET
+        name: getentity
+        description: Get rule or workflow detail
+        call: nected.getentity
+        with:
+          entityType: rest.entityType
+          entityId: rest.entityId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dev/variable
+      name: listglobalvariables
+      operations:
+      - method: GET
+        name: listglobalvariables
+        description: List global variables
+        call: nected.listglobalvariables
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dev/variable
+      name: createglobalvariable
+      operations:
+      - method: POST
+        name: createglobalvariable
+        description: Create a global variable
+        call: nected.createglobalvariable
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dev/variable/{name}
+      name: getglobalvariable
+      operations:
+      - method: GET
+        name: getglobalvariable
+        description: Get a global variable
+        call: nected.getglobalvariable
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dev/variable/{name}
+      name: updateglobalvariable
+      operations:
+      - method: PATCH
+        name: updateglobalvariable
+        description: Update a global variable
+        call: nected.updateglobalvariable
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /dev/variable/{name}
+      name: deleteglobalvariable
+      operations:
+      - method: DELETE
+        name: deleteglobalvariable
+        description: Delete a global variable
+        call: nected.deleteglobalvariable
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: nected-mcp
+    transport: http
+    description: MCP adapter for Nected API for AI agent use.
+    tools:
+    - name: triggerrule
+      description: Trigger a rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nected.triggerrule
+      with:
+        ruleId: tools.ruleId
+      inputParameters:
+      - name: ruleId
+        type: string
+        description: ruleId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: triggerworkflow
+      description: Trigger a workflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nected.triggerworkflow
+      with:
+        workflowId: tools.workflowId
+      inputParameters:
+      - name: workflowId
+        type: string
+        description: workflowId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: checkusage
+      description: Check usage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nected.checkusage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchauditlogs
+      description: Search audit logs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nected.searchauditlogs
+      with:
+        pageNo: tools.pageNo
+        pageSize: tools.pageSize
+        search: tools.search
+        type: tools.type
+        event: tools.event
+        status: tools.status
+        startDate: tools.startDate
+        endDate: tools.endDate
+      inputParameters:
+      - name: pageNo
+        type: integer
+        description: pageNo
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: search
+        type: string
+        description: search
+      - name: type
+        type: string
+        description: type
+      - name: event
+        type: string
+        description: event
+      - name: status
+        type: string
+        description: status
+      - name: startDate
+        type: string
+        description: startDate
+      - name: endDate
+        type: string
+        description: endDate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getauditlog
+      description: Get audit log detail
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nected.getauditlog
+      with:
+        logId: tools.logId
+      inputParameters:
+      - name: logId
+        type: string
+        description: logId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listentities
+      description: List rules or workflows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nected.listentities
+      with:
+        entityType: tools.entityType
+        page: tools.page
+        perPage: tools.perPage
+        sortBy: tools.sortBy
+        sortDir: tools.sortDir
+        status: tools.status
+        name: tools.name
+        type: tools.type
+        q: tools.q
+        tags: tools.tags
+        createdAtFrom: tools.createdAtFrom
+        createdAtTo: tools.createdAtTo
+        updatedAtFrom: tools.updatedAtFrom
+        updatedAtTo: tools.updatedAtTo
+        createdBy: tools.createdBy
+        updatedBy: tools.updatedBy
+      inputParameters:
+      - name: entityType
+        type: string
+        description: entityType
+        required: true
+      - name: page
+        type: integer
+        description: page
+      - name: perPage
+        type: integer
+        description: perPage
+      - name: sortBy
+        type: string
+        description: sortBy
+      - name: sortDir
+        type: string
+        description: sortDir
+      - name: status
+        type: string
+        description: status
+      - name: name
+        type: string
+        description: name
+      - name: type
+        type: string
+        description: type
+      - name: q
+        type: string
+        description: q
+      - name: tags
+        type: string
+        description: tags
+      - name: createdAtFrom
+        type: string
+        description: createdAtFrom
+      - name: createdAtTo
+        type: string
+        description: createdAtTo
+      - name: updatedAtFrom
+        type: string
+        description: updatedAtFrom
+      - name: updatedAtTo
+        type: string
+        description: updatedAtTo
+      - name: createdBy
+        type: string
+        description: createdBy
+      - name: updatedBy
+        type: string
+        description: updatedBy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getentity
+      description: Get rule or workflow detail
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nected.getentity
+      with:
+        entityType: tools.entityType
+        entityId: tools.entityId
+        view: tools.view
+        include: tools.include
+        version: tools.version
+        expand: tools.expand
+      inputParameters:
+      - name: entityType
+        type: string
+        description: entityType
+        required: true
+      - name: entityId
+        type: string
+        description: entityId
+        required: true
+      - name: view
+        type: string
+        description: view
+      - name: include
+        type: string
+        description: include
+      - name: version
+        type: string
+        description: version
+      - name: expand
+        type: string
+        description: expand
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listglobalvariables
+      description: List global variables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nected.listglobalvariables
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createglobalvariable
+      description: Create a global variable
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nected.createglobalvariable
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getglobalvariable
+      description: Get a global variable
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nected.getglobalvariable
+      with:
+        name: tools.name
+      inputParameters:
+      - name: name
+        type: string
+        description: name
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateglobalvariable
+      description: Update a global variable
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nected.updateglobalvariable
+      with:
+        name: tools.name
+      inputParameters:
+      - name: name
+        type: string
+        description: name
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteglobalvariable
+      description: Delete a global variable
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: nected.deleteglobalvariable
+      with:
+        name: tools.name
+      inputParameters:
+      - name: name
+        type: string
+        description: name
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    NECTED_TOKEN: NECTED_TOKEN
