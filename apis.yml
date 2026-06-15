@@ -1,8 +1,9 @@
 aid: nected
 name: Nected
-description: Nected is a low-code workflow automation and decision engine platform for building business rules and automated
-  processes. The API supports triggering rules and workflows, managing global variables, listing entities, retrieving audit
-  logs, and checking usage.
+description: >-
+  Nected is a low-code workflow automation and decision engine platform for building business rules and automated
+  processes. The API supports triggering rules and workflows, managing global variables, listing entities, retrieving
+  audit logs, and checking usage.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -19,20 +20,19 @@ specificationVersion: '0.19'
 apis:
   - aid: nected:nected
     name: Nected
-    description: Nected is a low-code workflow automation and decision engine platform for building business rules and automated
+    description: >-
+      Nected is a low-code workflow automation and decision engine platform for building business rules and automated
       processes.
     humanURL: https://www.nected.ai
     baseURL: https://api.nected.ai
     tags:
-    - Workflow Automation
-    - Decision Engine
+      - Workflow Automation
+      - Decision Engine
     properties:
-    - type: Documentation
-      url: https://docs.nected.ai
-    - type: OpenAPI
-      url: https://raw.githubusercontent.com/api-evangelist/nected/refs/heads/main/openapi/nected-openapi.yml
-    - type: NaftikoCapability
-      url: capabilities/nected.yaml
+      - type: Documentation
+        url: https://docs.nected.ai
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/nected/refs/heads/main/openapi/nected-openapi.yml
 common:
   - type: GitHubOrganization
     url: https://github.com/Nected

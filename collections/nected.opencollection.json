@@ -1,0 +1,376 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nected API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "nected-api-key",
+      "value": "{{nected-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trigger a rule",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.nected.ai/nected/rule/:ruleId",
+        "params": [
+          {
+            "name": "ruleId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Execute a published Nected rule by its ID with single or bulk inputs."
+    },
+    {
+      "info": {
+        "name": "Trigger a workflow",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.nected.ai/nected/workflow/:workflowId",
+        "params": [
+          {
+            "name": "workflowId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Execute a published Nected workflow by its ID."
+    },
+    {
+      "info": {
+        "name": "Check usage",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nected.ai/dev/usage"
+      },
+      "docs": "Returns the count of total invocations recorded for the workspace."
+    },
+    {
+      "info": {
+        "name": "Search audit logs",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nected.ai/dev/audit/audit/search",
+        "params": [
+          {
+            "name": "pageNo",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "search",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "type",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "event",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "status",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "startDate",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "endDate",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Retrieve audit log entries with filtering and pagination."
+    },
+    {
+      "info": {
+        "name": "Get audit log detail",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nected.ai/dev/audit/audit/:logId",
+        "params": [
+          {
+            "name": "logId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get audit log detail"
+    },
+    {
+      "info": {
+        "name": "List rules or workflows",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nected.ai/dev/:entityType",
+        "params": [
+          {
+            "name": "entityType",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "page",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "perPage",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "sortBy",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "sortDir",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "status",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "type",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "q",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "tags",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "createdAtFrom",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "createdAtTo",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "updatedAtFrom",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "updatedAtTo",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "createdBy",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "updatedBy",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "List rules or workflows"
+    },
+    {
+      "info": {
+        "name": "Get rule or workflow detail",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nected.ai/dev/:entityType/:entityId",
+        "params": [
+          {
+            "name": "entityType",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "entityId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "view",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "include",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "version",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "expand",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Get rule or workflow detail"
+    },
+    {
+      "info": {
+        "name": "List global variables",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nected.ai/dev/variable"
+      },
+      "docs": "List global variables"
+    },
+    {
+      "info": {
+        "name": "Create a global variable",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.nected.ai/dev/variable",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a global variable"
+    },
+    {
+      "info": {
+        "name": "Get a global variable",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nected.ai/dev/variable/:name",
+        "params": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get a global variable"
+    },
+    {
+      "info": {
+        "name": "Update a global variable",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://api.nected.ai/dev/variable/:name",
+        "headers": [
+          {
+            "name": "checksum",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Update a global variable"
+    },
+    {
+      "info": {
+        "name": "Delete a global variable",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.nected.ai/dev/variable/:name",
+        "headers": [
+          {
+            "name": "checksum",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete a global variable"
+    }
+  ],
+  "bundled": true
+}
