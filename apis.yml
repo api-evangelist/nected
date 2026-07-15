@@ -34,6 +34,8 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/nected/refs/heads/main/openapi/nected-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/nected-agentic-access.yml
   - type: DomainSecurity
     url: security/nected-domain-security.yml
   - type: Authentication
