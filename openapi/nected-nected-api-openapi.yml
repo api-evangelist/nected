@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: Dev Nected API
+  description: Nected is a low-code workflow automation and decision engine platform. The API enables triggering of rules and workflows, listing and inspecting entities, managing global variables, retrieving audit logs, and checking usage.
+  version: '1.0'
+  contact:
+    name: Nected
+    url: https://www.nected.ai
+servers:
+- url: https://api.nected.ai
+  description: Nected production API (management endpoints)
+- url: https://nected-59.nected.io
+  description: Nected rule/workflow execution endpoint (replace with your tenant)
+security:
+- NectedApiKey: []
+tags:
+- name: Nected
+paths:
+  /nected/rule/{ruleId}:
+    post:
+      summary: Trigger a rule
+      description: Execute a published Nected rule by its ID with single or bulk inputs.
+      operationId: triggerRule
+      parameters:
+      - name: ruleId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TriggerRequest'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TriggerResponse'
+        '401':
+          description: Unauthorized
+      tags:
+      - Nected
+  /nected/workflow/{workflowId}:
+    post:
+      summary: Trigger a workflow
+      description: Execute a published Nected workflow by its ID.
+      operationId: triggerWorkflow
+      parameters:
+      - name: workflowId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TriggerRequest'
+      responses:
+        '200':
+          description: Successful execution
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TriggerResponse'
+        '401':
+          description: Unauthorized
+      tags:
+      - Nected
+components:
+  schemas:
+    TriggerResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            executionId:
+              type: string
+            executionTime:
+              type: string
+            ruleId:
+              type: string
+            output:
+              type: array
+              items:
+                type: object
+            bulkOutput:
+              type: array
+              items:
+                type: object
+            action:
+              type: object
+            additionalOutput:
+              type: object
+    TriggerRequest:
+      type: object
+      properties:
+        environment:
+          type: string
+          enum:
+          - staging
+          - production
+          default: production
+        params:
+          type: object
+          additionalProperties: true
+        bulkParams:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        version:
+          type: string
+        branchName:
+          type: string
+  securitySchemes:
+    NectedApiKey:
+      type: apiKey
+      in: header
+      name: nected-api-key
