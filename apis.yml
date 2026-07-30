@@ -5,9 +5,22 @@ description: >-
   processes. The API supports triggering rules and workflows, managing global variables, listing entities, retrieving
   audit logs, and checking usage.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nected.png
 tags:
   - Low-Code
   - Workflow Automation
@@ -18,21 +31,30 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/nected/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: nected:nected
-    name: Nected
-    description: >-
-      Nected is a low-code workflow automation and decision engine platform for building business rules and automated
-      processes.
-    humanURL: https://www.nected.ai
-    baseURL: https://api.nected.ai
-    tags:
-      - Workflow Automation
-      - Decision Engine
-    properties:
-      - type: Documentation
-        url: https://docs.nected.ai
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/nected/refs/heads/main/openapi/nected-openapi.yml
+- aid: nected:nected-dev-api
+  name: Nected Dev API
+  description: The Dev API from Nected — 7 operation(s) for dev.
+  humanURL: https://www.nected.ai
+  baseURL: https://api.nected.ai
+  tags:
+  - Dev
+  properties:
+  - type: OpenAPI
+    url: openapi/nected-dev-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nected.ai
+- aid: nected:nected-nected-api
+  name: Nected Nected API
+  description: The Nected API from Nected — 2 operation(s) for nected.
+  humanURL: https://www.nected.ai
+  baseURL: https://api.nected.ai
+  tags:
+  - Nected
+  properties:
+  - type: OpenAPI
+    url: openapi/nected-nected-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nected.ai
 common:
   - type: AgenticAccess
     url: agentic-access/nected-agentic-access.yml
