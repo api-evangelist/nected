@@ -1,0 +1,16 @@
+{
+  "provider": "nected",
+  "sources": [
+    "nected-dev-api-openapi.yml",
+    "nected-nected-api-openapi.yml"
+  ],
+  "outputs": [
+    "nected-dev-api-openapi.yml",
+    "nected-nected-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
