@@ -1,0 +1,401 @@
+{
+  "item": [
+    {
+      "id": "fdfefbd3-ad9d-47b0-82c7-38ecf499896b",
+      "name": "Nected",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "57fb9d29-ad4e-4dab-9ee5-b9bb0c08baa7",
+          "name": "Trigger a rule",
+          "request": {
+            "name": "Trigger a rule",
+            "description": {
+              "content": "Execute a published Nected rule by its ID with single or bulk inputs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nected",
+                "rule",
+                ":ruleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ruleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"environment\": \"production\",\n  \"params\": {\n    \"key_0\": 2308\n  },\n  \"bulkParams\": [\n    {\n      \"key_0\": 7907,\n      \"key_1\": 9577,\n      \"key_2\": \"string\",\n      \"key_3\": \"string\",\n      \"key_4\": 762.4308901227872\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 2886.3768447111293,\n      \"key_2\": \"string\",\n      \"key_3\": true\n    }\n  ],\n  \"version\": \"<string>\",\n  \"branchName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4ed7afa9-ef9f-4691-bd1a-ca74ff001044",
+              "name": "Successful execution",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nected",
+                    "rule",
+                    ":ruleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "nected-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"environment\": \"production\",\n  \"params\": {\n    \"key_0\": 8965.179839905824\n  },\n  \"bulkParams\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 8688\n    },\n    {\n      \"key_0\": 8246.099231436723,\n      \"key_1\": 5245.665639969183,\n      \"key_2\": false,\n      \"key_3\": 9136\n    }\n  ],\n  \"version\": \"<string>\",\n  \"branchName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"executionId\": \"string\",\n    \"executionTime\": \"string\",\n    \"ruleId\": \"string\",\n    \"action\": {},\n    \"additionalOutput\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7516e45c-6e89-4342-ae82-865b81ce2831",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nected",
+                    "rule",
+                    ":ruleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "nected-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"environment\": \"production\",\n  \"params\": {\n    \"key_0\": 8965.179839905824\n  },\n  \"bulkParams\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 8688\n    },\n    {\n      \"key_0\": 8246.099231436723,\n      \"key_1\": 5245.665639969183,\n      \"key_2\": false,\n      \"key_3\": 9136\n    }\n  ],\n  \"version\": \"<string>\",\n  \"branchName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "310aa8ea-a92d-48c6-ae75-ca3cc12b5fdf",
+          "name": "Trigger a workflow",
+          "request": {
+            "name": "Trigger a workflow",
+            "description": {
+              "content": "Execute a published Nected workflow by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nected",
+                "workflow",
+                ":workflowId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"environment\": \"production\",\n  \"params\": {\n    \"key_0\": 2172.413220487478,\n    \"key_1\": true,\n    \"key_2\": true,\n    \"key_3\": 71\n  },\n  \"bulkParams\": [\n    {\n      \"key_0\": 8054.897192504956,\n      \"key_1\": false,\n      \"key_2\": \"string\",\n      \"key_3\": 9477.188580574919\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 7411.032148763416\n    }\n  ],\n  \"version\": \"<string>\",\n  \"branchName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c6c90187-cbc3-4e1c-a84e-f209d6a12554",
+              "name": "Successful execution",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nected",
+                    "workflow",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "nected-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"environment\": \"production\",\n  \"params\": {\n    \"key_0\": 8965.179839905824\n  },\n  \"bulkParams\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 8688\n    },\n    {\n      \"key_0\": 8246.099231436723,\n      \"key_1\": 5245.665639969183,\n      \"key_2\": false,\n      \"key_3\": 9136\n    }\n  ],\n  \"version\": \"<string>\",\n  \"branchName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"executionId\": \"string\",\n    \"executionTime\": \"string\",\n    \"ruleId\": \"string\",\n    \"action\": {},\n    \"additionalOutput\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb50f1c5-d16e-48b5-97ef-12747cfb5a9f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nected",
+                    "workflow",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "nected-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"environment\": \"production\",\n  \"params\": {\n    \"key_0\": 8965.179839905824\n  },\n  \"bulkParams\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 8688\n    },\n    {\n      \"key_0\": 8246.099231436723,\n      \"key_1\": 5245.665639969183,\n      \"key_2\": false,\n      \"key_3\": 9136\n    }\n  ],\n  \"version\": \"<string>\",\n  \"branchName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nected.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "nected-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4352c1d4-4098-4f9d-9b27-100013747fd5",
+    "name": "Dev Nected API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Nected is a low-code workflow automation and decision engine platform. The API enables triggering of rules and workflows, listing and inspecting entities, managing global variables, retrieving audit logs, and checking usage.\n\nContact Support:\n Name: Nected",
+      "type": "text/plain"
+    }
+  }
+}
