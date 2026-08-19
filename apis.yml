@@ -29,7 +29,7 @@ tags:
 created: '2026-03-27'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/nected/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: nected:nected-dev-api
   name: Nected Dev API
