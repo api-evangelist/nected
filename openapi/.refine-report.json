@@ -1,8 +1,7 @@
 {
   "provider": "nected",
   "sources": [
-    "nected-dev-api-openapi.yml",
-    "nected-nected-api-openapi.yml"
+    "_original/nected-openapi.yml"
   ],
   "outputs": [
     "nected-dev-api-openapi.yml",
@@ -11,6 +10,27 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "nected-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "nected-openapi.yml: tagged paths POST /nected/rule/{ruleId} -> Nected",
+    "nected-openapi.yml: tagged paths POST /nected/workflow/{workflowId} -> Nected",
+    "nected-openapi.yml: tagged paths GET /dev/usage -> Dev",
+    "nected-openapi.yml: tagged paths GET /dev/audit/audit/search -> Dev",
+    "nected-openapi.yml: tagged paths GET /dev/audit/audit/{logId} -> Dev",
+    "nected-openapi.yml: tagged paths GET /dev/{entityType} -> Dev",
+    "nected-openapi.yml: tagged paths GET /dev/{entityType}/{entityId} -> Dev",
+    "nected-openapi.yml: tagged paths GET /dev/variable -> Dev",
+    "nected-openapi.yml: tagged paths POST /dev/variable -> Dev",
+    "nected-openapi.yml: tagged paths GET /dev/variable/{name} -> Dev",
+    "nected-openapi.yml: tagged paths PATCH /dev/variable/{name} -> Dev",
+    "nected-openapi.yml: tagged paths DELETE /dev/variable/{name} -> Dev",
+    "nected-openapi.yml: declared missing tag: Dev",
+    "nected-openapi.yml: declared missing tag: Nected",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "nected-dev-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nected-nected-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
