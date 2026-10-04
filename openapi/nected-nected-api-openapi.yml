@@ -74,6 +74,27 @@ paths:
       - Nected
 components:
   schemas:
+    TriggerRequest:
+      type: object
+      properties:
+        environment:
+          type: string
+          enum:
+          - staging
+          - production
+          default: production
+        params:
+          type: object
+          additionalProperties: true
+        bulkParams:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        version:
+          type: string
+        branchName:
+          type: string
     TriggerResponse:
       type: object
       properties:
@@ -102,27 +123,6 @@ components:
               type: object
             additionalOutput:
               type: object
-    TriggerRequest:
-      type: object
-      properties:
-        environment:
-          type: string
-          enum:
-          - staging
-          - production
-          default: production
-        params:
-          type: object
-          additionalProperties: true
-        bulkParams:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        version:
-          type: string
-        branchName:
-          type: string
   securitySchemes:
     NectedApiKey:
       type: apiKey
